@@ -1,23 +1,442 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+
+    <!-- SEO: JSON-LD Structured Data for FAQPage and WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "그랜져 리스와 장기 렌트의 가장 큰 차이점은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "가장 큰 차이점은 '하' 번호판 사용 유무와 보험 가입 주체입니다. 리스는 일반 번호판을 사용하며 운전자가 직접 보험을 가입하지만, 장기 렌트는 '하', '호' 번호판을 사용하고 렌터카 업체가 보험을 가입합니다. 리스는 개인 소유 자산으로 인정되어 부채로 잡히며, 장기 렌트는 부채로 잡히지 않습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "그랜져 리스가 할부 구매보다 저렴한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "월 납입금액 자체는 리스가 할부보다 저렴할 수 있습니다. 특히 초기 비용 부담(취득세, 공채 등)이 없고, 사업자의 경우 월 납입료 전체를 손비 처리하여 절세 효과를 볼 수 있습니다. 반면, 총 비용을 따져보면 잔존가치와 금융 이자를 고려해야 하므로 개인의 상황에 따라 달라집니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "그랜져 GN7 캘리그래피 모델의 리스 견적을 절약하는 팁이 있나요?",
+          "@id": "#절약팁-답변",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "리스 견적은 잔존가치, 보증금, 계약 기간에 따라 크게 달라집니다. 보증금을 높이고 잔존가치를 낮게 설정하면 월 납입금이 줄어들 수 있습니다. 또한, 여러 금융사의 금리를 비교하는 것이 중요합니다. 저희 사이트에서는 그랜져 GN7, 하이브리드, 캘리그래피 등 다양한 모델의 견적을 비교해드립니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #0A2B4E; /* Deep Blue */
+            --secondary-color: #2F6FD5; /* Lighter Blue */
+            --accent-color: #2ECC71; /* Green for highlight/success */
+            --text-color: #333;
+            --bg-light: #F7F9FC; /* Light background for sections */
+            --bg-dark: #1E3A8A; /* Dark background for hero/footer */
+            --btn-cta: #FF6600; /* Orange/Red for main CTA */
+            --border-light: #e0e0e0; /* Light border color */
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        /* Base Styles */
+        body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; background-color: #fff; color: var(--text-color); line-height: 1.8; font-size: 16px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
+        
+        /* Typography */
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.4; }
+        h1 { font-size: 2.8em; }
+        h2 { font-size: 2.2em; text-align: center; color: var(--primary-color); }
+        h3 { font-size: 1.6em; color: var(--secondary-color); margin-top: 30px; }
+        p { margin-bottom: 20px; font-weight: 300; }
+        a { text-decoration: none; color: var(--secondary-color); }
+        a:hover { text-decoration: underline; }
+
+        /* Header: Logo and Navigation */
+        header { background-color: #fff; border-bottom: 1px solid var(--border-light); padding: 20px 0; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        header h1 { margin: 0; font-size: 1.8em; color: var(--primary-color); font-weight: 900; }
+        header nav a { margin-left: 20px; font-size: 1em; color: #555; font-weight: 500; transition: color 0.3s; }
+        header nav a:hover { color: var(--secondary-color); }
+
+        /* Hero Section: Main Call to Action */
+        .hero { background: linear-gradient(135deg, var(--bg-dark), #0A1B30); color: #fff; text-align: center; padding: 100px 20px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g stroke="%23FFFFFF" stroke-opacity="0.2" fill="none"><path d="M50 0 L100 25 L100 75 L50 100 L0 75 L0 25 Z" stroke-width="1.5"/></g></svg>'); background-size: 200px; }
+        .hero h1 { font-size: 3.5em; margin-bottom: 15px; font-weight: 900; text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.4em; margin-bottom: 40px; font-weight: 300; opacity: 0.9; }
+        
+        /* CTA Button */
+        .cta-btn { background-color: var(--btn-cta); color: #fff; padding: 18px 40px; font-size: 1.3em; font-weight: bold; border: none; border-radius: 50px; cursor: pointer; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 6px 15px rgba(255, 102, 0, 0.4); text-decoration: none; display: inline-block; }
+        .cta-btn:hover { background-color: #e65c00; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 102, 0, 0.5); }
+
+        /* Form Styling (Dwell Time optimization) */
+        .compare-form-box { background-color: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .compare-form-box h2 { color: var(--primary-color); text-align: center; margin-bottom: 30px; font-size: 1.8em; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: #555; font-size: 0.95em; }
+        .form-group input, .form-group select { width: 100%; padding: 14px; border: 1px solid var(--border-light); border-radius: 8px; box-sizing: border-box; font-size: 1em; }
+        .form-group select { appearance: none; background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 12px center; background-size: 18px; }
+        
+        /* Content Sections */
+        .content-section { padding: 80px 0; background-color: #fff; }
+        .content-section:nth-child(even) { background-color: var(--bg-light); }
+        .content-section h2 { margin-bottom: 40px; }
+
+        /* Feature Grid (Benefits/Process Steps) */
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .feature-grid .item { background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s; }
+        .feature-grid .item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .feature-grid .item img { width: 60px; height: 60px; margin-bottom: 20px; }
+        .feature-grid .item h3 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.4em; }
+        .feature-grid .item p { font-size: 0.95em; color: #555; line-height: 1.6; }
+
+        /* Comparison Table */
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 30px; background-color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
+        .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border: 1px solid var(--border-light); }
+        .comparison-table th { background-color: var(--primary-color); color: #fff; font-weight: 700; font-size: 1.1em; }
+        .comparison-table td { background-color: #fcfcfc; font-weight: 400; color: #444; }
+        .comparison-table .highlight { background-color: #e6f7ff; font-weight: 700; color: var(--primary-color); }
+
+        /* Keyword List */
+        .keyword-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; margin-top: 30px; gap: 10px; }
+        .keyword-list li { background-color: var(--bg-dark); color: #fff; padding: 10px 18px; border-radius: 20px; font-weight: 500; font-size: 0.9em; transition: background-color 0.3s; }
+        .keyword-list li:hover { background-color: #2F6FD5; }
+        
+        /* FAQ Section */
+        .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
+        .faq-item h3 { cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.3em; color: var(--primary-color); }
+        .faq-item h3::after { content: '+'; font-size: 1.5em; color: var(--secondary-color); transition: transform 0.3s; font-weight: 500; }
+        .faq-item.active h3::after { content: '-'; transform: rotate(180deg); }
+        .faq-item p { display: none; padding-top: 15px; color: #555; line-height: 1.7; font-weight: 300; }
+        .faq-item.active p { display: block; }
+        
+        /* Footer */
+        footer { background-color: var(--primary-color); color: #fff; text-align: center; padding: 50px 20px; font-size: 0.9em; }
+        footer a { color: #fff; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
+        footer a:hover { text-decoration: underline; color: #f0f0f0; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
+            .hero { padding: 80px 20px; }
+            .hero h1 { font-size: 2.8em; }
+            .hero p { font-size: 1.2em; }
+            .cta-btn { padding: 15px 30px; font-size: 1.1em; }
+            .compare-form-box { padding: 25px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .keyword-list { justify-content: flex-start; }
+            .keyword-list li { margin: 5px 3px; font-size: 0.85em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1><a href="/">그랜져 리스 비교 전문</a></h1>
+            <nav>
+                <a href="#quote">실시간 견적</a>
+                <a href="#lease-guide">리스 가이드</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>2026 그랜져 리스, 최저가 견적을 지금 바로 비교하세요!</h1>
+                <p>신형 그랜져 GN7부터 하이브리드까지, 국내 모든 금융사의 리스 가격을 한 번에 비교하고 가장 합리적인 조건으로 그랜져를 만나보세요.</p>
+                <div class="compare-form-box" id="quote">
+                    <h2>실시간 그랜져 리스 견적 비교 서비스</h2>
+                    <p>간단한 정보 입력으로 **저렴한 그랜져 리스** 상품을 찾아드립니다.</p>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="carModel">원하는 그랜져 모델 선택</label>
+                            <select id="carModel" required>
+                                <option value="">모델을 선택하세요</option>
+                                <option value="grandeur-gn7-3.5">그랜져 GN7 3.5 가솔린</option>
+                                <option value="grandeur-gn7-2.5">그랜져 GN7 2.5 가솔린</option>
+                                <option value="grandeur-gn7-hybrid">그랜져 GN7 하이브리드</option>
+                                <option value="grandeur-calligraphy">그랜져 캘리그래피 (최상위 트림)</option>
+                                <option value="grandeur-leblanc">그랜져 르블랑</option>
+                                <option value="grandeur-ig">그랜져 IG (구형 모델 리스)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="term">원하는 리스 기간 (2026 기준)</label>
+                            <select id="term" required>
+                                <option value="">기간을 선택하세요</option>
+                                <option value="36">36개월</option>
+                                <option value="48">48개월</option>
+                                <option value="60">60개월</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">연락처</label>
+                            <input type="tel" id="phone" placeholder="휴대폰 번호를 입력하세요" required>
+                        </div>
+                        <button type="submit" class="cta-btn">그랜져 리스 최저가 견적 받기</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Section 1: Why Lease Grandeur? -->
+        <section class="content-section" id="lease-guide">
+            <div class="container">
+                <h2>그랜져 리스, 왜 전문가와 함께 비교해야 할까요?</h2>
+                <div class="feature-grid">
+                    <div class="item">
+                        <img src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="빠른 견적 아이콘" style="border-radius: 50%;">
+                        <h3>1. 복잡한 리스 조건의 최적화</h3>
+                        <p>그랜져 리스 견적은 잔존가치, 보증금, 금리, 그리고 금융사별 프로모션에 따라 천차만별입니다. 특히 신차 그랜져 GN7의 경우, 초기 물량 확보와 할인 혜택이 중요합니다. 저희는 고객의 운행 패턴(주행거리)과 재무 상태에 맞는 최적의 조건을 분석해드립니다. 단순한 가격 비교를 넘어, 개인 사업자 및 법인 고객을 위한 절세 컨설팅까지 제공합니다.</p>
+                    </div>
+                    <div class="item">
+                        <img src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="최저가 보장 아이콘" style="border-radius: 50%;">
+                        <h3>2. 투명한 가격 비교와 할인 프로모션</h3>
+                        <p>다양한 캐피탈사와 보험사의 금리를 실시간으로 비교 분석합니다. 그랜져 리스는 보증금과 선납금 설정에 따라 월 납입금이 크게 달라집니다. 저희는 2026년 최신 프로모션을 적용하여 고객님께 가장 **저렴한 그랜져 리스** 견적을 제시합니다. 숨겨진 추가 비용 없이 투명한 **그랜져 리스 가격** 정보를 확인할 수 있습니다.</p>
+                    </div>
+                    <div class="item">
+                        <img src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="간편한 가입 아이콘" style="border-radius: 50%;">
+                        <h3>3. 모델별 상세 분석 (GN7, 하이브리드, 캘리그래피)</h3>
+                        <p>그랜져는 GN7 출시 이후 르블랑, 캘리그래피 트림까지 인기가 높습니다. 특히 **그랜져 하이브리드 리스**는 연비 효율성이 뛰어나 개인과 법인 고객 모두에게 인기가 많습니다. 저희는 각 모델의 특징과 예상 잔존가치를 고려하여 가장 합리적인 리스 상품을 추천해드리며, **그랜져 리스 저렴한곳**을 찾는 고객님께 맞춤형 컨설팅을 제공합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Section 2: In-depth Analysis (Lease vs. Long-term Rental) -->
+        <section class="content-section" style="background-color: #fcfcfc;">
+            <div class="container">
+                <h2>그랜져 리스 vs. 장기 렌트, 현명한 선택을 위한 차이점 분석</h2>
+                <p>그랜져 신차를 이용하는 방법은 구매 외에도 리스와 장기 렌트가 있습니다. 두 가지 방법 모두 초기 비용 부담이 적다는 장점이 있지만, 세부적인 조건과 혜택에서 큰 차이를 보입니다. 2026년 기준, 어떤 방법이 고객님에게 더 유리할지 **그랜져 장기 렌트**와 리스를 심층 비교해드립니다.</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>비교 항목</th>
+                            <th>그랜져 리스</th>
+                            <th>그랜져 장기 렌트</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>차량 번호판</td>
+                            <td>일반 승용차 번호판 (하, 호, 허 제외)</td>
+                            <td>'하', '호', '허' 번호판 사용</td>
+                        </tr>
+                        <tr>
+                            <td>보험 가입 주체</td>
+                            <td>운전자 직접 가입 (경력 인정)</td>
+                            <td>렌터카 업체 가입 (운전자 보험 경력 단절)</td>
+                        </tr>
+                        <tr>
+                            <td>차량 소유</td>
+                            <td>리스사 명의 (운전자 재산으로 분류)</td>
+                            <td>렌터카 업체 명의 (운전자 재산으로 분류되지 않음)</td>
+                        </tr>
+                        <tr>
+                            <td>월 납입금 구성</td>
+                            <td>차량 대금 + 금리 + 잔존가치</td>
+                            <td>차량 대금 + 보험료 + 세금 + 정비료 (포함 시)</td>
+                        </tr>
+                        <tr>
+                            <td>차량 관리 (정비)</td>
+                            <td>운전자 직접 관리 (정비 옵션 선택 가능)</td>
+                            <td>렌터카 업체 대행 (정비 포함 상품 선택 시)</td>
+                        </tr>
+                        <tr>
+                            <td>사업자 비용 처리</td>
+                            <td>월 리스료 전액 비용 처리 (손비 인정)</td>
+                            <td>월 렌트료 전액 비용 처리 (손비 인정)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>그랜져 리스를 선택해야 하는 경우:</h3>
+                <p>운전 경력이 길어 보험료 할증이 적은 분, 품위를 중요하게 여겨 '하, 호' 번호판을 원치 않는 분, 차량을 깨끗하게 관리하고 리스 만기 시 인수할 계획이 있는 분에게 유리합니다. 또한 리스 만기 시점의 차량 잔존가치가 높을 것으로 예상되는 **그랜져 GN7**이나 **그랜져 하이브리드**와 같은 인기 차종은 리스가 더 합리적인 선택이 될 수 있습니다. **그랜져 리스 가격**의 핵심은 잔존가치입니다.</p>
+
+                <h3>그랜져 장기 렌트를 선택해야 하는 경우:</h3>
+                <p>운전 경력이 짧아 보험료가 비싸거나 잦은 사고로 보험 할증이 부담스러운 분, 차량 관리가 귀찮아 모든 정비 서비스를 받고 싶은 분에게 적합합니다. 장기 렌트는 운전자 보험 경력이 단절될 수 있으니 주의해야 합니다. **그랜져 장기 렌트**의 월 납입금에는 보험료가 포함되어 있어 총 비용 계산이 간편합니다.</p>
+            </div>
+        </section>
+        
+        <!-- Main Content Section 3: Detailed Keyword-Rich Content -->
+        <section class="content-section">
+            <div class="container">
+                <h2>그랜져 리스 견적을 낮추는 2026년 핵심 팁 (Feat. 모델별 비교)</h2>
+                <p>그랜져는 현대자동차의 대표적인 준대형 세단으로, 2026년에도 꾸준히 사랑받는 모델입니다. **그랜져 리스 저렴한곳**을 찾는 고객님들이 가장 궁금해하는 **그랜져 리스 비용** 절감 방법을 상세하게 안내해드립니다. 리스 견적은 단순히 **그랜져 가격**만을 기준으로 하지 않습니다. 금융사의 금리, 보증금 비율, 잔존가치 설정 등 복합적인 요소를 고려해야 합니다.</p>
+
+                <h3>1. 보증금과 잔존가치 설정의 중요성: 그랜져 리스 월 납입금의 핵심</h3>
+                <p>리스 견적에서 가장 큰 영향을 미치는 것은 보증금과 잔존가치입니다. 보증금은 리스 기간 종료 후 돌려받을 수 있는 금액이며, 보증금이 높을수록 월 납입금은 낮아집니다. 예를 들어, **그랜져 GN7 캘리그래피** 모델을 리스할 때, 보증금을 10% 설정하는 것보다 30% 설정하는 것이 월 납입금을 크게 줄일 수 있습니다. 또한 잔존가치(리스 만료 후 차량의 예상 가치)를 높게 설정하면 월 납입금이 낮아지지만, 만기 시 인수 비용이 높아집니다. 고객님의 재무 계획에 맞는 적절한 비율을 선택하는 것이 중요합니다. 저희는 **그랜져 리스 추천** 상품을 제안할 때 이러한 요소를 고려한 맞춤형 컨설팅을 제공합니다.</p>
+
+                <h3>2. 그랜져 하이브리드 리스 vs. 가솔린 리스: 연비와 초기 비용 비교</h3>
+                <p>최근 **그랜져 하이브리드** 모델의 인기가 급증하고 있습니다. 하이브리드 모델은 가솔린 모델보다 차량 가격 자체가 높지만, 연비 효율성이 뛰어나 운행 거리가 많은 고객에게는 총 비용 면에서 유리할 수 있습니다. 특히 2026년에는 고유가 시대가 지속될 가능성이 높아 **그랜져 하이브리드 리스**의 수요가 높습니다. 연간 주행거리가 2만km 이상이라면 하이브리드를, 단거리 위주라면 **그랜져 GN7 2.5 가솔린**이나 **그랜져 르블랑** 모델을 고려해보는 것이 합리적입니다.</p>
+
+                <h3>3. 신용 점수 관리를 통한 금리 할인 혜택</h3>
+                <p>리스는 금융 상품이므로 고객의 신용 점수가 리스 금리에 직접적인 영향을 미칩니다. 신용 점수가 높을수록 금리가 낮아져 월 **그랜져 리스 비용**이 절약됩니다. 만약 신용 점수가 다소 낮다면, 보증금 비율을 높여 금융사의 리스크를 줄이는 방식으로 견적을 유리하게 조정할 수 있습니다. 2026년 금융시장 동향에 맞춰 가장 유리한 금리 조건의 **그랜져 리스 전문 업체**를 찾는 것이 중요합니다.</p>
+
+                <!-- Pexels Image Source (Commercial Use Free) -->
+                <img src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="그랜져 리스 견적 이미지" style="width:100%; height: auto; margin: 30px 0; border-radius: 8px; object-fit: cover;">
+                <p><strong>참고 키워드:</strong> 그랜져 리스 견적, 그랜져 GN7 가격, 그랜져 하이브리드 가격, 그랜져 캘리그래피 리스, 그랜져 르블랑 리스, 그랜져 리스 저렴한곳, 그랜져 리스 프로모션, 2026 그랜져 리스 조건, 리스 보증금, 리스 잔존가치, 신용 점수, 금리 비교.</p>
+
+                <h3>4. 그랜져 리스 내돈내산 후기: 숨겨진 비용과 장단점 파악하기</h3>
+                <p>온라인에서 **그랜져 리스 후기**나 **내돈내산** 리뷰를 보면 리스의 **장단점**이 극명하게 갈립니다. 장점으로는 초기 비용 부담이 적고 세금 및 보험료를 신경 쓰지 않아도 된다는 점(장기렌트), 그리고 리스 만기 시점의 차량 처리가 쉽다는 점이 꼽힙니다. 반면, 단점으로는 운행 거리 제한(약정 주행거리 초과 시 위약금 발생), 번호판(장기 렌트의 경우), 중도 해지 수수료 등이 있습니다. 특히 **그랜져 GN7** 리스 시에는 만기 후 차량 인수 계획을 잘 세워야 손해를 보지 않습니다. 계약 전에 위약금 조항을 꼼꼼히 확인하고, **그랜져 리스 비교**를 통해 자신에게 맞는 **그랜져 리스 전문 업체**를 선택해야 합니다.</p>
+
+                <h3>5. 2026년 그랜져 모델별 리스 견적 예상 (가솔린 2.5 vs. 하이브리드)</h3>
+                <p>다음은 2026년 상반기 기준, **그랜져 리스 예상 금액**을 비교한 표입니다. 이는 평균적인 견적이며, 실제 금리 및 조건에 따라 달라질 수 있습니다. **그랜져 GN7** 가솔린 2.5 모델과 하이브리드 모델을 비교해보면 초기 가격 차이가 월 납입금에 어떻게 반영되는지 알 수 있습니다.</p>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>모델 (2026년형)</th>
+                            <th>차량 가격 (VAT 포함)</th>
+                            <th>보증금 10% (36개월 기준)</th>
+                            <th>월 리스 납입금 (예상)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>그랜져 GN7 2.5 가솔린 (기본형)</td>
+                            <td>약 3,700만원</td>
+                            <td>370만원</td>
+                            <td class="highlight">약 58만원 ~ 62만원</td>
+                        </tr>
+                        <tr>
+                            <td>그랜져 GN7 하이브리드 (기본형)</td>
+                            <td>약 4,200만원</td>
+                            <td>420만원</td>
+                            <td class="highlight">약 65만원 ~ 69만원</td>
+                        </tr>
+                        <tr>
+                            <td>그랜져 GN7 캘리그래피 (최상위)</td>
+                            <td>약 4,800만원</td>
+                            <td>480만원</td>
+                            <td class="highlight">약 75만원 ~ 79만원</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>참고:</strong> 위 표는 대략적인 **그랜져 리스 비용** 산정 예시입니다. 정확한 **그랜져 리스 견적**은 고객님의 신용 등급, 주행거리 옵션, 금융사별 프로모션에 따라 달라질 수 있습니다. **그랜져 리스 싼곳**을 찾기 위해서는 반드시 여러 업체의 견적을 동시에 받아보셔야 합니다.</p>
+
+                <!-- Additional Form for longer content engagement -->
+                <div class="compare-form-box" style="margin-top: 50px;">
+                    <h2>맞춤형 그랜져 리스 견적 상세 요청 (2026년)</h2>
+                    <p>더 상세한 **그랜져 GN7 리스** 또는 **그랜져 하이브리드 리스** 견적 비교를 위해 정보를 입력해 주세요.</p>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="carModel2">차종 및 트림</label>
+                            <input type="text" id="carModel2" value="그랜져 GN7 (캘리그래피)" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="mileage">연간 주행거리 (km)</label>
+                            <select id="mileage" required>
+                                <option value="10000">1만 km</option>
+                                <option value="15000">1만 5천 km</option>
+                                <option value="20000">2만 km</option>
+                                <option value="30000">3만 km 이상</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="depositType">초기 비용 선택 (보증금/선납금)</label>
+                            <select id="depositType" required>
+                                <option value="0">초기 비용 없음 (무보증 리스)</option>
+                                <option value="10">보증금 10%</option>
+                                <option value="20">보증금 20%</option>
+                                <option value="30">보증금 30%</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inquire_name">이름</label>
+                            <input type="text" id="inquire_name" placeholder="이름을 입력하세요" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inquire_phone">연락처</label>
+                            <input type="tel" id="inquire_phone" placeholder="휴대폰 번호를 입력하세요" required>
+                        </div>
+                        <button type="submit" class="cta-btn">맞춤 견적 요청하기</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Section 4: External Information and Trust Signals -->
+        <section class="content-section" style="background-color: var(--bg-light);">
+            <div class="container">
+                <h2>그랜져 리스 가입 전 반드시 확인해야 할 사항</h2>
+                <p>그랜져 리스를 고민하는 고객님들이라면, 차량 자체의 매력 외에도 금융 상품으로서 리스가 가지는 특성을 정확히 이해해야 합니다. 특히 **그랜져 리스 신규 가입** 시에는 꼼꼼한 약관 확인이 필수입니다. 2026년 리스 시장은 다양한 상품이 경쟁하고 있어 소비자 선택의 폭이 넓어졌지만, 그만큼 복잡해진 것도 사실입니다. **그랜져 리스 혜택**과 **사은품**, **현금 지원** 등에 현혹되기보다는, 총 납입금액과 금리를 확인해야 합니다.</p>
+                
+                <h3>그랜져 리스 관련 신뢰성 있는 정보 출처</h3>
+                <p>전문적인 정보를 통해 현명한 선택을 하세요. 다음은 그랜져 리스에 대한 정확한 정보를 얻을 수 있는 신뢰할 만한 외부 사이트입니다.</p>
+                <ul>
+                    <li><a href="https://www.hyundai.com" target="_blank">현대자동차 공식 홈페이지 (그랜져 GN7 상품 정보 확인)</a></li>
+                    <li><a href="https://www.fss.or.kr" target="_blank">금융감독원 (여신전문금융회사 리스 상품 관련 정보)</a></li>
+                    <li><a href="https://namu.wiki/w/%EA%B7%B8%EB%9E%9C%EC%A0%B0" target="_blank">나무위키 - 그랜져 (모델별 역사 및 특징 정보)</a></li>
+                    <li><a href="https://www.carisyou.com" target="_blank">카이즈유 (국내 신차 판매량 및 시장 동향 분석)</a></li>
+                    <li><a href="https://www.kofia.or.kr" target="_blank">한국금융투자협회 (리스 금리 및 금융시장 정보)</a></li>
+                </ul>
+
+                <h3>함께 많이 찾는 키워드 (그랜져 리스 관련 검색어)</h3>
+                <ul class="keyword-list">
+                    <li>#그랜져리스비교사이트</li>
+                    <li>#그랜져GN7견적</li>
+                    <li>#그랜져하이브리드가격</li>
+                    <li>#그랜져리스싼곳</li>
+                    <li>#그랜져리스장단점</li>
+                    <li>#그랜져장기렌트비용</li>
+                    <li>#그랜져프로모션할인</li>
+                    <li>#그랜져중고차리스</li>
+                    <li>#2026그랜져리스혜택</li>
+                    <li>#그랜져캘리그래피리스가격</li>
+                    <li>#그랜져르블랑견적</li>
+                    <li>#그랜져리스가이드</li>
+                    <li>#그랜져리스보증금없는곳</li>
+                </ul>
+
+                <p style="margin-top: 40px; font-weight: 500;"><strong>그랜져 모델 키워드:</strong> 그랜져 GN7, 그랜져 IG, 그랜져 하이브리드, 그랜져 캘리그래피, 그랜져 르블랑, 그랜져 풀체인지, 그랜져 2.5 가솔린, 그랜져 3.5 가솔린, 그랜져 LPG, 그랜져 신형, 그랜져 중고 리스, 그랜져 리스 순위, 그랜져 리스 프로모션, 그랜져 리스 신규 가입 혜택, 그랜져 리스 사은품, 그랜져 리스 현금 지원, 그랜져 리스 가격 비교, 그랜져 리스 견적 전문 업체, 그랜져 리스 저렴한곳 후기, 그랜져 리스 장단점 비교, 그랜져 리스 내돈내산, 그랜져 리스 추천, 그랜져 리스 비용, 그랜져 리스 예상 금액.</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="content-section" id="faq">
+            <div class="container">
+                <h2>자주 묻는 질문 (FAQ)</h2>
+                <div class="faq-item">
+                    <h3 id="q1">그랜져 리스는 보증금 없이도 가능한가요?</h3>
+                    <p>네, 가능합니다. **그랜져 무보증 리스** 상품도 많이 출시되고 있습니다. 다만, 보증금 없는 리스는 금융사 입장에서 리스크가 크기 때문에 월 납입금이 상대적으로 높아질 수 있습니다. 신용 점수가 높다면 무보증 리스가 가능하지만, 신용 점수가 낮을 경우 보증금을 일부 요구하는 경우가 많습니다. 저희는 고객님의 상황에 맞는 **그랜져 리스 조건**을 분석하여 최적의 견적을 제시합니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 id="q2">리스 만료 후 그랜져를 인수할지 반납할지 어떻게 결정하나요?</h3>
+                    <p>리스 만료 시점에 차량의 잔존가치와 중고차 시세를 비교하여 결정합니다. 만약 중고차 시세가 잔존가치보다 높다면 인수하여 중고로 판매하는 것이 이득일 수 있습니다. 반대로 중고차 시세가 잔존가치보다 낮다면 반납하는 것이 합리적입니다. **그랜져 GN7**의 경우 인기가 높아 중고차 시세가 높게 형성될 가능성이 크므로 인수 후 중고 판매가 유리할 수 있습니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 id="q3">그랜져 리스 계약 중도 해지 시 위약금은 얼마나 되나요?</h3>
+                    <p>중도 해지 시에는 남은 리스료와 잔존가치에 대한 위약금이 발생합니다. 일반적으로 계약 기간이 짧을수록, 그리고 초기에 해지할수록 위약금이 높습니다. 따라서 계약 기간을 신중하게 정하는 것이 중요합니다. **그랜져 리스**는 중도 해지 시 손해가 크기 때문에 신중한 판단이 필요하며, 장기 렌트보다 위약금이 더 높을 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
     </main>
-  </body>
-</html>
+
+    <script>
+        // FAQ 토글 기능 (사용자 경험 개선)
+        document.querySelectorAll('.faq-item h3').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+  
